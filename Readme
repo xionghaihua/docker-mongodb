@@ -1,0 +1,11 @@
+#build
+docker build -t wux-mongodb:3.6.12 .
+
+#ÔÐ
+
+docker run -itd --name mongodb-server1 -h mongodb1 -v /var/lib/docker/volumes/4b7c800c1dee30a2c9029e2c076a560ac93d10c047772f54b1990fa8ae7f8555/_data:/data/db -p 27018:27017 -e  MONGODB_PASS="123456"  wux-mongodb:3.6.12
+
+
+#
+docker run -itd --name mongodb-server -h mongodb -p 27017:27017 -p 28017:28017 -v /data/mongodb/db:/data/db -v /data/mongodb/log:/data/log -e  MONGODB_PASS="123456" wux-mongod:3.1
+
